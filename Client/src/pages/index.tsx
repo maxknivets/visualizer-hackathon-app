@@ -11,6 +11,7 @@ export default function Home() {
 
   useEffect(() => {
     const asyncReqs = async () => {
+      try {
       // https://docs.amberdata.io/reference/get-token-balances
       const startDate = "2021-08-24T20%3A00%3A00.511Z";
       const endDate = "2021-08-25T20%3A00%3A00.511Z";
@@ -41,6 +42,10 @@ export default function Home() {
       amount: tokenId (it's mostly incorrect)
       holder: current holder
       */
+
+      } catch {
+        console.log('please provide a private key in .env.local');
+      }
     }
     asyncReqs();
   }, []);
